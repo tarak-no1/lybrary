@@ -31,6 +31,7 @@
         ],
         "no-var": "error",
         "no-unused-vars": "warn",
-        "new-cap": "off"
+        "new-cap": "off",
+        "valid-jsdoc": "off"
     }
 }
