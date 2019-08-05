@@ -7,5 +7,7 @@ module.exports.loginWithMobileNumberParams = () => [
 module.exports.loginWithMobileNumber = async (req, res, next) => {
     const response = getResponseObject();
     response.data.user_id = '12345';
-    return res.status(200).json(response);
+    setTimeout(() => {
+        res.status(200).json(response);
+    }, 3000);
 };
