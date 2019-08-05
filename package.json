@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "dev": "NODE_ENV=development DEBUG=lybrary PORT=5555 DB_USER=postgres DB_PASSWORD=password pm2 start ./bin/www --name lybrary --watch ./",
     "lint": "eslint ./"
   },
   "dependencies": {
@@ -18,9 +19,9 @@
     "sequelize-cli": "^5.5.0"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "13.2.0",
     "eslint-config-google": "^0.13.0",
-    "eslint-plugin-import": "^2.18.2"
+    "eslint-plugin-import": "2.18.2"
   }
 }

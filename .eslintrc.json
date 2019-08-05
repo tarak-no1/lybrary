@@ -3,7 +3,9 @@
         "browser": true,
         "es6": true
     },
-    "extends": "google",
+    "extends": [
+        "airbnb-base"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -14,24 +16,12 @@
     },
     "rules": {
         "indent": [
-            "error",
+            "warn",
             4
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "no-var": "error",
         "no-unused-vars": "warn",
-        "new-cap": "off",
-        "valid-jsdoc": "off"
+        "no-nested-ternary": "off",
+        "no-restricted-globals": "off",
+        "no-await-in-loop": "off"
     }
 }
