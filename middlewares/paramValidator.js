@@ -25,6 +25,7 @@ const getMissingFields = (params, body) => {
         const param = params[i];
         const paramType = param.type;
         const paramValue = body[param.value];
+        console.log(param);
         const errorStatus = isInteger(paramType, paramValue) || isArray(paramType, paramValue)
             || isMobileNumber(paramType, paramValue) || isEmail(paramType, paramValue)
             || isBoolean(paramType, paramValue) || isString(paramType, paramValue);

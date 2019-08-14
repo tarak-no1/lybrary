@@ -21,14 +21,11 @@ const getUserDetails = async (db, mobileNumber) => {
     return getSingleRow(db.user, where);
 };
 
-const updateUser = async (db, mobileNumber, otp) => {
+const updateUser = async (db, mobileNumber, dataToUpdate) => {
     const where = {
         mobileNumber,
     };
-    const updatedUserData = {
-        otp,
-    };
-    return updateData(db.user, where, updatedUserData);
+    return updateData(db.user, where, dataToUpdate);
 };
 
 module.exports = {

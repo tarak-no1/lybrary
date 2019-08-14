@@ -20,7 +20,11 @@ module.exports.resendOtp = async (req, res, next) => {
 
     const otpToken = `${userDetails.userId}-${userDetails.lastLogin}`;
     const otp = generateOtp(otpToken);
-    await updateUser(db, mobileNumber, otp);
+    const dataToUpdate = {
+        otp,
+    };
+    await updateUser(db, mobileNumber, dataToUpdate);
 
+    response.message = `Otp sent to ${mobileNumber}`;
     return res.status(200).json(response);
 };

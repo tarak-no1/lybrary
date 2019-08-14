@@ -20,7 +20,14 @@ module.exports.loginWithMobileNumber = async (req, res, next) => {
 
     const otpToken = `${userDetails.userId}-${userDetails.lastLogin}`;
     const otp = generateOtp(otpToken);
-    await updateUser(db, mobileNumber, otp);
-    response.data = userDetails;
+
+    const dataToUpdate = {
+        otp,
+    };
+    await updateUser(db, mobileNumber, dataToUpdate);
+    response.message = otp;
+    response.data = {
+        user_id: userDetails.userId,
+    };
     return res.status(200).json(response);
 };
