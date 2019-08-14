@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
+const addHeaders = require('./middlewares/addHeaders');
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(addHeaders());
 
 app.use('/v1/', indexRouter);
 
@@ -21,6 +23,7 @@ app.use((req, res, next) => {
 
 // error handler
 app.use((err, req, res, next) => {
+    console.error(err);
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -30,7 +33,7 @@ app.use((err, req, res, next) => {
     res.json({
         status: 'error',
         message: err.message,
-        error_code: err.errorCode
+        error_code: err.errorCode,
     });
 });
 

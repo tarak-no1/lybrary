@@ -1,4 +1,4 @@
-/* eslint-disable no-restricted-globals,no-useless-escape */
+/* eslint-disable no-restricted-globals,no-useless-escape,import/no-extraneous-dependencies */
 const _ = require('lodash');
 
 const errorCodes = require('../helpers/errorCodes');
@@ -17,7 +17,7 @@ const isArray = (paramType, paramValue) => paramType === 'array' && (!paramValue
 const isMobileNumber = (paramType, paramValue) => paramType === 'mobile_number' && (!paramValue || _.isEmpty(paramValue) || checkPhoneNumberOrNot(paramValue));
 const isEmail = (paramType, paramValue) => paramType === 'email' && (!paramValue || _.isEmpty(paramValue) || !validateEmail(paramValue));
 const isBoolean = (paramType, paramValue) => paramType === 'boolean' && typeof paramValue === 'boolean';
-const isString = (paramType, paramValue) => paramType === 'string' && _.isEmpty(paramValue) && paramValue === undefined;
+const isString = (paramType, paramValue) => paramType === 'string' && _.isEmpty(paramValue);
 
 const getMissingFields = (params, body) => {
     const missingFields = [];

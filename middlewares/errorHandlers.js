@@ -3,5 +3,5 @@ module.exports = fn => (request, response, next) => fn(request, response, next)
         if (e.response) {
             e.status = e.response.status;
         }
-        next(e);
+        return next(e);
     });
